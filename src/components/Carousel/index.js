@@ -3,6 +3,7 @@ import {
   ButtonBack,
   ButtonNext,
   CarouselProvider,
+  Image,
   ImageWithZoom,
   Slide,
   Slider,
@@ -16,13 +17,13 @@ function Carousel() {
   return (
     <CarouselComponent>
       <div className="container">
-        <img
-          className="background"
-          alt="fundo"
-          src="https://cdn.spacetelescope.org/archives/images/wallpaper2/heic2007a.jpg"
-          width={800}
-          height={300}
-        />
+        <div className="background">
+          <img
+            alt="fundo"
+            src="https://i1.wp.com/geekantenado.com/wp-content/uploads/2019/04/avengersendgame-blogroll-2-1555518573008_1280w.jpg?fit=1280%2C720&ssl=1"
+          />
+        </div>
+
         <CarouselProvider
           visibleSlides={1}
           totalSlides={3}
@@ -31,19 +32,35 @@ function Carousel() {
           hasMasterSpinner
           infinite
         >
-          <Slider style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <h2 className="title">O cinema nas suas mãos</h2>
+          <span className="subtitle">
+            Filmes adicionados e selecionados exclusivamente para você
+          </span>
+          <Slider
+            style={{
+              margin: "0 auto",
+              marginTop: 30,
+              borderRadius: 15,
+            }}
+          >
             <Slide index={0}>
-              <ImageWithZoom src="https://cdn.spacetelescope.org/archives/images/wallpaper2/heic2007a.jpg" />
+              <Image src="https://i1.wp.com/geekantenado.com/wp-content/uploads/2019/04/avengersendgame-blogroll-2-1555518573008_1280w.jpg?fit=1280%2C720&ssl=1" />
+              <div className="movieBackdrop">
+                <div className="movieDescription">
+                  <h6 className="title">Avengers: Endgame</h6>
+                  <span className="description">Ação, Aventura</span>
+                </div>
+              </div>
             </Slide>
             <Slide index={1}>
-              <ImageWithZoom src="https://static.toiimg.com/photo/72975551.cms" />
+              <Image src="https://static.toiimg.com/photo/72975551.cms" />
             </Slide>
             <Slide index={2}>
-              <ImageWithZoom src="https://static.toiimg.com/photo/72975551.cms" />
+              <Image src="https://static.toiimg.com/photo/72975551.cms" />
             </Slide>
           </Slider>
-          <ButtonBack>Back</ButtonBack>
-          <ButtonNext>Next</ButtonNext>
+          <ButtonBack className="button button-prev">{`<`}</ButtonBack>
+          <ButtonNext className="button button-next">{`>`}</ButtonNext>
         </CarouselProvider>
       </div>
     </CarouselComponent>

@@ -26,41 +26,12 @@ export const CarouselComponent = styled.div`
       z-index: 100;
       margin: 10px 60px;
       margin-bottom: 30px;
-      .movieBackdrop {
-        position: absolute;
-        bottom: 0px;
-        background-image: linear-gradient(to top, #000000, #ffffff00);
-        width: 100%;
-        height: 50%;
-        .movieDescription {
-          position: absolute;
-          bottom: 40px;
-          left: 60px;
-          .title {
-            font-size: 36px;
-            color: white;
-            margin: 0px;
-          }
-
-          .description {
-            font-size: 18px;
-            color: white;
-            align-self: flex-start;
-          }
-        }
-      }
     }
 
-    .title {
-      font-size: 30px;
-      color: white;
-      margin: 0px;
-      margin-top: 30px;
-    }
-
-    .subtitle {
-      font-size: 18px;
-      color: white;
+    .slide .carousel__inner-slide img {
+      border-radius: 5px;
+      width: 98%;
+      margin: 0 auto;
     }
 
     .button {
