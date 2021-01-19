@@ -4,9 +4,8 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 30px;
   .title {
-    font-size: 30px;
+    font-size: 21px;
     color: #000;
     margin: 0px;
   }
