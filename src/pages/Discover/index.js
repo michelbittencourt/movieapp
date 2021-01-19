@@ -6,6 +6,7 @@ import Title from "../../components/Title";
 import { Container } from "./styles";
 import HorizontalCircleList from "../../components/HorizontalCircleList";
 import SeeAllContainer from "../../components/SeeAllContainer";
+import HorizontalRoundedList from "../../components/HorizontalRoundedList";
 
 // import { Container } from './styles';
 
@@ -21,8 +22,14 @@ function Discover() {
         <SeeAllContainer title="Atores mais vistos" />
         <HorizontalCircleList />
       </section>
+      <section className="m-60">
+        <SeeAllContainer title="Gêneros" />
+        <HorizontalRoundedList />
+      </section>
       <section>
-        <CarouselWithFourItens title="Os melhores avaliados" />
+        <Title title="Próximos lançamentos" />
+        <CarouselMovies title="Novembro/2020" />
+        <CarouselMovies title="Dezembro/2020" />
       </section>
     </Container>
   );
