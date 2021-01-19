@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   ButtonBack,
   ButtonNext,
@@ -10,17 +10,35 @@ import {
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
 import { CarouselComponent } from "./styles";
+import { baseURLImages } from "../../services/api";
 
 // import { Container } from './styles';
 
-function Carousel() {
+function Carousel({ data }) {
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+
+  const handleBackButtonPressed = () => {
+    if (selectedImageIndex === 0) {
+      setSelectedImageIndex(data.length - 1);
+    } else {
+      setSelectedImageIndex(selectedImageIndex - 1);
+    }
+  };
+  const handleNextButtonPressed = () => {
+    if (selectedImageIndex === data.length - 1) {
+      setSelectedImageIndex(0);
+    } else {
+      setSelectedImageIndex(selectedImageIndex + 1);
+    }
+  };
+
   return (
     <CarouselComponent>
       <div className="container">
         <div className="background">
           <img
             alt="fundo"
-            src="https://i1.wp.com/geekantenado.com/wp-content/uploads/2019/04/avengersendgame-blogroll-2-1555518573008_1280w.jpg?fit=1280%2C720&ssl=1"
+            src={`${baseURLImages}${data[selectedImageIndex]?.backdrop_path}`}
           />
         </div>
 
@@ -43,24 +61,27 @@ function Carousel() {
               borderRadius: 15,
             }}
           >
-            <Slide index={0}>
-              <Image src="https://i1.wp.com/geekantenado.com/wp-content/uploads/2019/04/avengersendgame-blogroll-2-1555518573008_1280w.jpg?fit=1280%2C720&ssl=1" />
-              <div className="movieBackdrop">
-                <div className="movieDescription">
-                  <h6 className="title">Avengers: Endgame</h6>
-                  <span className="description">Ação, Aventura</span>
+            {data.map((movie, index) => (
+              <Slide index={index}>
+                {/* {setActive(movie.backdrop_path)} */}
+                <Image src={`${baseURLImages}/${movie.backdrop_path}`} />
+                <div className="movieBackdrop">
+                  <div className="movieDescription">
+                    <h6 className="title">{movie.title}</h6>
+                    <span className="description">Ação, Aventura</span>
+                  </div>
                 </div>
-              </div>
-            </Slide>
-            <Slide index={1}>
-              <Image src="https://static.toiimg.com/photo/72975551.cms" />
-            </Slide>
-            <Slide index={2}>
-              <Image src="https://static.toiimg.com/photo/72975551.cms" />
-            </Slide>
+              </Slide>
+            ))}
           </Slider>
-          <ButtonBack className="button button-prev">{`<`}</ButtonBack>
-          <ButtonNext className="button button-next">{`>`}</ButtonNext>
+          <ButtonBack
+            className="button button-prev"
+            onClick={handleBackButtonPressed}
+          >{`<`}</ButtonBack>
+          <ButtonNext
+            className="button button-next"
+            onClick={handleNextButtonPressed}
+          >{`>`}</ButtonNext>
         </CarouselProvider>
       </div>
     </CarouselComponent>
