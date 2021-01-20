@@ -8,6 +8,7 @@ export const Container = styled.div`
     font-size: 21px;
     color: #000;
     margin: 0px;
+    text-transform: capitalize;
   }
 
   .button-clear {

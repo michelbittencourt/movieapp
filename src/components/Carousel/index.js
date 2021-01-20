@@ -63,7 +63,6 @@ function Carousel({ data }) {
           >
             {data.map((movie, index) => (
               <Slide index={index}>
-                {/* {setActive(movie.backdrop_path)} */}
                 <Image src={`${baseURLImages}/${movie.backdrop_path}`} />
                 <div className="movieBackdrop">
                   <div className="movieDescription">

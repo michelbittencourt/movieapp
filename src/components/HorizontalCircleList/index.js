@@ -1,6 +1,7 @@
 import React from "react";
 import { Avatar, makeStyles, Tooltip } from "@material-ui/core";
 import { Container } from "./styles";
+import { baseURLImages } from "../../services/api";
 
 // import { Container } from './styles';
 
@@ -14,16 +15,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function HorizontalCircleList() {
+function HorizontalCircleList({ data }) {
   const classes = useStyles();
 
   return (
     <Container>
-      {[1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => (
-        <Tooltip title="Ator" arrow classes={classes}>
+      {data?.map((item, index) => (
+        <Tooltip title={item?.name} arrow classes={classes}>
           <Avatar
-            alt="Remy Sharp"
-            src="/static/images/avatar/1.jpg"
+            alt={item?.name}
+            src={`${baseURLImages}${item?.profile_path}`}
             className={`avatar ${index > 0 ? "m-10" : ""}`}
           />
         </Tooltip>

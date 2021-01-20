@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import Carousel from "../../components/Carousel";
 import CarouselWithFourItens from "../../components/CarouselWithFourItens";
 import NavBar from "../../components/NavBar";
@@ -8,6 +9,8 @@ import { Container } from "./styles";
 // import { Container } from './styles';
 
 function Home() {
+  const history = useHistory();
+
   const [dataNowPlaying, setDataNowPlaying] = useState([]);
   const [dataTopRated, setDataTopRated] = useState([]);
   const [dataPopular, setDataPopular] = useState([]);
@@ -56,7 +59,11 @@ function Home() {
       <NavBar />
       <Carousel data={dataNowPlaying} />
       <section>
-        <CarouselWithFourItens title="Os mais amados" data={dataPopular} />
+        <CarouselWithFourItens
+          title="Os mais amados"
+          data={dataPopular}
+          onClick={(id) => history.push(`/movie/details/${id}`)}
+        />
       </section>
       <section>
         <CarouselWithFourItens

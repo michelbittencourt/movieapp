@@ -15,7 +15,7 @@ import { baseURLImages } from "../../services/api";
 
 // import { Container } from './styles';
 
-function CarouselWithFourItens({ data, title }) {
+function CarouselWithFourItens({ data, title, onClick }) {
   return (
     <CarouselComponent>
       <div className="container">
@@ -37,7 +37,11 @@ function CarouselWithFourItens({ data, title }) {
             }}
           >
             {data?.map((item, index) => (
-              <Slide index={index} className="slide">
+              <Slide
+                index={index}
+                className="slide"
+                onClick={() => onClick(item?.id)}
+              >
                 <Image src={`${baseURLImages}${item.poster_path}`} />
               </Slide>
             ))}
