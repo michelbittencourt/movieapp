@@ -14,7 +14,7 @@ import { baseURLImages } from "../../services/api";
 
 // import { Container } from './styles';
 
-function Carousel({ data }) {
+function Carousel({ data, onClick }) {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
   const handleBackButtonPressed = () => {
@@ -62,7 +62,7 @@ function Carousel({ data }) {
             }}
           >
             {data.map((movie, index) => (
-              <Slide index={index}>
+              <Slide index={index} onClick={() => onClick(movie?.id)}>
                 <Image src={`${baseURLImages}/${movie.backdrop_path}`} />
                 <div className="movieBackdrop">
                   <div className="movieDescription">

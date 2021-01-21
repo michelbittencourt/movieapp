@@ -23,20 +23,21 @@ function MovieDetails({ data }) {
           <h6>{data?.title}</h6>
           <span className="like">
             <Favorite />
-            438
+            {data?.vote_count || 0}
           </span>
           <span className="rate">
             <Star />
-            8,0/10
+            {data?.vote_average || 0}/10
           </span>
         </div>
-        <span>Tags, Tags</span>
+        <span>{data?.genres?.map((g) => g.name).join(", ")}</span>
       </div>
       <div className="watchNow">
         <ButtonWatch
           variant="contained"
           color="primary"
           className="buttonWatch"
+          onClick={() => window.open(data.homepage, "_blank")}
         >
           Assistir
         </ButtonWatch>

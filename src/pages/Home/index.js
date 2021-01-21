@@ -57,7 +57,10 @@ function Home() {
   return (
     <Container>
       <NavBar />
-      <Carousel data={dataNowPlaying} />
+      <Carousel
+        data={dataNowPlaying}
+        onClick={(id) => history.push(`/movie/details/${id}`)}
+      />
       <section>
         <CarouselWithFourItens
           title="Os mais amados"
@@ -69,6 +72,7 @@ function Home() {
         <CarouselWithFourItens
           title="Os melhores avaliados"
           data={dataTopRated}
+          onClick={(id) => history.push(`/movie/details/${id}`)}
         />
       </section>
     </Container>

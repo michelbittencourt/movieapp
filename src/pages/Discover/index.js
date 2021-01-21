@@ -13,10 +13,12 @@ import HorizontalRoundedList from "../../components/HorizontalRoundedList";
 
 // import { Container } from './styles';
 import { api } from "./../../services/api";
+import { useHistory } from "react-router-dom";
 
 moment.locale("pt-br");
 
 function Discover() {
+  const history = useHistory();
   const [dataRecentlyAdded, setDataRecentlyAdded] = useState([]);
   const [dataActors, setDataActors] = useState([]);
   const [dataGenres, setDataGenres] = useState([]);
@@ -82,6 +84,7 @@ function Discover() {
           title="Adicionados recentemente"
           hasInfo
           data={dataRecentlyAdded}
+          onClick={(id) => history.push(`/movie/details/${id}`)}
         />
       </section>
       <section className="m-60">
@@ -101,6 +104,7 @@ function Discover() {
             dataUpcoming?.total_results
           })`}
           data={dataUpcoming?.results}
+          onClick={(id) => history.push(`/movie/details/${id}`)}
         />
       </section>
     </Container>
