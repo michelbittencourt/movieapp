@@ -28,27 +28,20 @@ export const CarouselComponent = styled.div`
       margin-bottom: 30px;
 
       li {
-        height: 230px;
+        height: 310px;
+        width: 220px !important;
+        margin: 0 10px;
+        border-radius: 10px;
         div {
-          height: 300px;
-        }
-      }
-
-      li:hover {
-        transform: perspective(200px) translateZ(10px);
-        div {
-          transform: perspective(200px) translateZ(10px);
+          border-radius: 10px;
           img {
-            /* transform: perspective(200px) translateZ(10px); */
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
-              0 6px 6px rgba(0, 0, 0, 0.23);
+            border-radius: 10px;
           }
         }
       }
     }
 
     .slide .carousel__inner-slide img {
-      border-radius: 5px;
       width: 98%;
       margin: 0 auto;
     }
@@ -77,5 +70,21 @@ export const CarouselComponent = styled.div`
       top: 50%;
       float: right;
     }
+  }
+`;
+
+export const ContainerInfo = styled.caption`
+  position: absolute;
+  bottom: 0;
+  background-color: #fffffff1;
+  width: 100%;
+  text-align: start;
+  padding: 5px 10px;
+  h6 {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 600;
+  }
+  span {
   }
 `;

@@ -9,19 +9,19 @@ import {
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
 
-import { CarouselComponent } from "./styles";
+import { CarouselComponent, ContainerInfo } from "./styles";
 import SeeAllContainer from "../SeeAllContainer";
 
 // import { Container } from './styles';
 
-function CarouselWithFourItens({ title }) {
+function CarouselWithFourItens({ title, data, hasInfo }) {
   return (
     <CarouselComponent>
       <div className="container">
         <CarouselProvider
-          visibleSlides={4}
-          totalSlides={12}
-          step={4}
+          visibleSlides={6}
+          totalSlides={18}
+          step={1}
           naturalSlideWidth={800}
           naturalSlideHeight={300}
           hasMasterSpinner
@@ -37,9 +37,21 @@ function CarouselWithFourItens({ title }) {
           >
             <Slide index={0} className="slide">
               <Image src="https://i1.wp.com/geekantenado.com/wp-content/uploads/2019/04/avengersendgame-blogroll-2-1555518573008_1280w.jpg?fit=1280%2C720&ssl=1" />
+              {hasInfo && (
+                <ContainerInfo>
+                  <h6>Nome do filme</h6>
+                  <span>Tags</span>
+                </ContainerInfo>
+              )}
             </Slide>
             <Slide index={1} className="slide">
               <Image src="https://static.toiimg.com/photo/72975551.cms" />
+              {hasInfo && (
+                <ContainerInfo>
+                  <h6>Nome do filme</h6>
+                  <span>Tags</span>
+                </ContainerInfo>
+              )}
             </Slide>
             <Slide index={2} className="slide">
               <Image src="https://static.toiimg.com/photo/72975551.cms" />

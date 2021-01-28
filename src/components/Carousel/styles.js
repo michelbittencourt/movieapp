@@ -70,7 +70,8 @@ export const CarouselComponent = styled.div`
       font-size: 23px;
       border-radius: 5px;
       border: none;
-      box-shadow: none;
+      background-color: #fff;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     }
 
     .button-prev {
