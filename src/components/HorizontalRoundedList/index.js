@@ -1,22 +1,9 @@
 import React from "react";
-import { Avatar, makeStyles, Tooltip } from "@material-ui/core";
 import { CardGenero, Container } from "./styles";
 
 // import { Container } from './styles';
 
-const useStyles = makeStyles((theme) => ({
-  arrow: {
-    color: theme.palette.common.black,
-  },
-  tooltip: {
-    backgroundColor: theme.palette.common.black,
-    fontSize: 13,
-  },
-}));
-
 function HorizontalRoundedList({ data }) {
-  const classes = useStyles();
-
   return (
     <Container>
       {data.map((item, index) => (

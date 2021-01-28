@@ -2,30 +2,18 @@ import React, { useEffect, useState } from "react";
 import moment from "moment";
 import "moment/locale/pt-br"; // without this line it didn't work
 
-import CarouselWithFourItens from "../../components/CarouselWithFourItens";
 import CarouselMovies from "../../components/CarouselMovies";
 import NavBar from "../../components/NavBar";
-import Title from "../../components/Title";
 import { CardOverview, Container } from "./styles";
-import HorizontalCircleList from "../../components/HorizontalCircleList";
-import SeeAllContainer from "../../components/SeeAllContainer";
-import HorizontalRoundedList from "../../components/HorizontalRoundedList";
 
 // import { Container } from './styles';
 import { api } from "./../../services/api";
 import { useParams } from "react-router-dom";
 import VideoBanner from "../../components/VideoBanner";
 import MovieDetails from "./components/movieDetails/index";
-import { Box, makeStyles, Tab, Tabs, Typography } from "@material-ui/core";
+import { Box, Tab, Tabs } from "@material-ui/core";
 
 moment.locale("pt-br");
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.background.paper,
-  },
-}));
 
 function a11yProps(index) {
   return {
@@ -55,12 +43,8 @@ function Details() {
 
   const [dataVideos, setDataVideos] = useState([]);
   const [dataDetails, setDataDetails] = useState([]);
-  const [dataActors, setDataActors] = useState([]);
-  const [dataGenres, setDataGenres] = useState([]);
-  const [dataUpcoming, setDataUpcoming] = useState([]);
   const [dataSimilar, setDataSimilar] = useState([]);
 
-  const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -78,7 +62,7 @@ function Details() {
     };
 
     getLatestMovies();
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     const getMovieDetails = () => {
@@ -89,7 +73,7 @@ function Details() {
     };
 
     getMovieDetails();
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     const getSimilar = () => {
@@ -102,7 +86,7 @@ function Details() {
     };
 
     getSimilar();
-  }, []);
+  }, [id]);
 
   return (
     <Container>

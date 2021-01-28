@@ -4,7 +4,6 @@ import {
   ButtonNext,
   CarouselProvider,
   Image,
-  ImageWithZoom,
   Slide,
   Slider,
 } from "pure-react-carousel";
