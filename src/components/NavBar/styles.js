@@ -7,6 +7,8 @@ export const Header = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 30px 60px;
+  z-index: 1000;
+  background-color: ${Cores.background};
 `;
 
 export const Navigation = styled.nav`
