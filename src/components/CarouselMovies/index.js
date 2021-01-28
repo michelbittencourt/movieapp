@@ -11,16 +11,17 @@ import "pure-react-carousel/dist/react-carousel.es.css";
 
 import { CarouselComponent, ContainerInfo } from "./styles";
 import SeeAllContainer from "../SeeAllContainer";
+import { baseURLImages } from "../../services/api";
 
 // import { Container } from './styles';
 
-function CarouselWithFourItens({ title, data, hasInfo }) {
+function CarouselWithFourItens({ title, data, hasInfo, onClick }) {
   return (
     <CarouselComponent>
       <div className="container">
         <CarouselProvider
           visibleSlides={6}
-          totalSlides={18}
+          totalSlides={data?.length || 12}
           step={1}
           naturalSlideWidth={800}
           naturalSlideHeight={300}
@@ -35,54 +36,21 @@ function CarouselWithFourItens({ title, data, hasInfo }) {
               borderRadius: 15,
             }}
           >
-            <Slide index={0} className="slide">
-              <Image src="https://i1.wp.com/geekantenado.com/wp-content/uploads/2019/04/avengersendgame-blogroll-2-1555518573008_1280w.jpg?fit=1280%2C720&ssl=1" />
-              {hasInfo && (
-                <ContainerInfo>
-                  <h6>Nome do filme</h6>
-                  <span>Tags</span>
-                </ContainerInfo>
-              )}
-            </Slide>
-            <Slide index={1} className="slide">
-              <Image src="https://static.toiimg.com/photo/72975551.cms" />
-              {hasInfo && (
-                <ContainerInfo>
-                  <h6>Nome do filme</h6>
-                  <span>Tags</span>
-                </ContainerInfo>
-              )}
-            </Slide>
-            <Slide index={2} className="slide">
-              <Image src="https://static.toiimg.com/photo/72975551.cms" />
-            </Slide>
-            <Slide index={3} className="slide">
-              <Image src="https://i1.wp.com/geekantenado.com/wp-content/uploads/2019/04/avengersendgame-blogroll-2-1555518573008_1280w.jpg?fit=1280%2C720&ssl=1" />
-            </Slide>
-            <Slide index={4}>
-              <Image src="https://static.toiimg.com/photo/72975551.cms" />
-            </Slide>
-            <Slide index={5}>
-              <Image src="https://static.toiimg.com/photo/72975551.cms" />
-            </Slide>
-            <Slide index={6}>
-              <Image src="https://i1.wp.com/geekantenado.com/wp-content/uploads/2019/04/avengersendgame-blogroll-2-1555518573008_1280w.jpg?fit=1280%2C720&ssl=1" />
-            </Slide>
-            <Slide index={7}>
-              <Image src="https://static.toiimg.com/photo/72975551.cms" />
-            </Slide>
-            <Slide index={8}>
-              <Image src="https://static.toiimg.com/photo/72975551.cms" />
-            </Slide>
-            <Slide index={9}>
-              <Image src="https://i1.wp.com/geekantenado.com/wp-content/uploads/2019/04/avengersendgame-blogroll-2-1555518573008_1280w.jpg?fit=1280%2C720&ssl=1" />
-            </Slide>
-            <Slide index={10}>
-              <Image src="https://static.toiimg.com/photo/72975551.cms" />
-            </Slide>
-            <Slide index={11}>
-              <Image src="https://static.toiimg.com/photo/72975551.cms" />
-            </Slide>
+            {data?.map((movie, index) => (
+              <Slide
+                index={index}
+                className="slide"
+                onClick={() => onClick(movie?.id)}
+              >
+                <Image src={`${baseURLImages}${movie.poster_path}`} />
+                {hasInfo && (
+                  <ContainerInfo>
+                    <h6>{movie?.title}</h6>
+                    <span>Tags</span>
+                  </ContainerInfo>
+                )}
+              </Slide>
+            ))}
           </Slider>
           <ButtonBack className="button button-prev">{`<`}</ButtonBack>
           <ButtonNext className="button button-next">{`>`}</ButtonNext>

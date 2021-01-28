@@ -39,6 +39,9 @@ export const CarouselComponent = styled.div`
           }
         }
       }
+      li:hover {
+        cursor: pointer;
+      }
     }
 
     .slide .carousel__inner-slide img {

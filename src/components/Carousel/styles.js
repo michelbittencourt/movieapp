@@ -26,6 +26,7 @@ export const CarouselComponent = styled.div`
       z-index: 100;
       margin: 10px 60px;
       margin-bottom: 30px;
+      cursor: pointer;
       .movieBackdrop {
         position: absolute;
         bottom: 0px;
@@ -51,6 +52,9 @@ export const CarouselComponent = styled.div`
       }
     }
 
+    .movieBackdrop:hover {
+      cursor: pointer;
+    }
     .title {
       font-size: 30px;
       color: white;

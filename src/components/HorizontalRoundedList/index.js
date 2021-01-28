@@ -14,19 +14,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function HorizontalRoundedList() {
+function HorizontalRoundedList({ data }) {
   const classes = useStyles();
 
   return (
     <Container>
-      {[1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => (
+      {data.map((item, index) => (
         <CardGenero>
-          <img
+          {/* <img
             alt="gender"
             className="genderBackground"
-            src="https://i1.wp.com/geekantenado.com/wp-content/uploads/2019/04/avengersendgame-blogroll-2-1555518573008_1280w.jpg?fit=1280%2C720&ssl=1"
-          />
-          <h6>item</h6>
+            // src="https://i1.wp.com/geekantenado.com/wp-content/uploads/2019/04/avengersendgame-blogroll-2-1555518573008_1280w.jpg?fit=1280%2C720&ssl=1"
+          /> */}
+          <h6>{item.name}</h6>
         </CardGenero>
       ))}
     </Container>

@@ -35,6 +35,7 @@ export const CarouselComponent = styled.div`
       }
 
       li:hover {
+        cursor: pointer;
         transform: perspective(200px) translateZ(10px);
         div {
           transform: perspective(200px) translateZ(10px);
