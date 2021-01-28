@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import moment from "moment";
 import "moment/locale/pt-br"; // without this line it didn't work
 
-import CarouselWithFourItens from "../../components/CarouselWithFourItens";
 import CarouselMovies from "../../components/CarouselMovies";
 import NavBar from "../../components/NavBar";
 import Title from "../../components/Title";
