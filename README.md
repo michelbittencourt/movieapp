@@ -1,40 +1,88 @@
-# Getting Started
+# MB Movie App
+[![Build Status](https://img.shields.io/appveyor/ci/thiagoloureiro/netcore-jwt-integrator-extension/master.svg)](https://ci.appveyor.com/project/thiagoloureiro/netcore-jwt-integrator-extension)
 
-### Run `yarn` as order to download the dependencies, after sincronizing the project.
+#### 
+MB Movie App is a website where people can see the movies that are on the rise, movie nominations and according to the movie he sees, see movie recommendations similar to what he clicked. Through the platform you can also access the movie trailers, this project is being created in order to have more open projects on my github that was kind of stopped, I hope you enjoy it!
 
-## Available Scripts
+#### Live Website: [https://mbmovies.netlify.app/](https://mbmovies.netlify.app/)
 
-In the project directory, you can run:
+<details markdown='1'>
+  <summary>Installation </summary>
+  <br>
+  Run the command `yarn` as order to download the dependencies of the project.
+  > How to install yarn? [Installation](https://classic.yarnpkg.com/en/docs/install/#windows-stable)
+  <br>
+  In the project directory, you can run:
 
-### `yarn start`
+  ### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  Runs the app in the development mode.\
+  Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+  The page will reload if you make edits.\
+  You will also see any lint errors in the console.
 
-### `yarn test`
+  ### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  Launches the test runner in the interactive watch mode.\
+  See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+  ### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  Builds the app for production to the `build` folder.\
+  It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  The build is minified and the filenames include the hashes.\
+  Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.  
+</details>
 
-### `yarn eject`
+<details markdown='2'>
+  <summary>Screenshots</summary>
+  
+  Soon
+</details>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<details markdown='3'>
+  <summary>Technologies</summary>
+  
+  <br>
+  This project was created using:
+  
+  * React
+  * Styled Components
+  * Material-UI
+  * Pure React Carousel
+</details>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<details markdown='4'>
+  <summary>Scope of Funcionalities</summary>
+  <br>
+  Features
+  
+  - See new and mostly watched movies
+  - Search for movies that will launch or launched yet
+  - See details of movies, casting, duration, description, teasers, trailers, overview, related movies.
+  <br>
+  Soon
+  
+  - Login system to favorite, like and be more personal
+  - Create a way to show TV Shows and Series
+</details>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<details markdown='5'>
+  <summary>ToDo</summary>
+  
+  * [ ] Responsivity
+  * [ ] Finish Details screen
+  * [ ] Search movies by name
+  * [ ] Fix errors on the main carousel
+</details>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<details markdown='5'>
+  <summary>Project Status</summary>
+  <br>
+  This project is under development.
+</details>
+
