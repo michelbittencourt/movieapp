@@ -3,6 +3,7 @@ import moment from "moment";
 import "moment/locale/pt-br"; // without this line it didn't work
 
 import CarouselMovies from "../../components/CarouselMovies";
+import CarouselActors from "../../components/CarouselActors";
 import NavBar from "../../components/NavBar";
 import { CardOverview, Container } from "./styles";
 
@@ -44,6 +45,7 @@ function Details() {
   const [dataVideos, setDataVideos] = useState([]);
   const [dataDetails, setDataDetails] = useState([]);
   const [dataSimilar, setDataSimilar] = useState([]);
+  const [dataCast, setDataCast] = useState([]);
 
   const [value, setValue] = React.useState(0);
 
@@ -73,6 +75,17 @@ function Details() {
     };
 
     getMovieDetails();
+  }, [id]);
+
+  useEffect(() => {
+    const getMovieCast = () => {
+      api.get(`/movie/${id}/credits`).then((response) => {
+        const details = response.data?.cast;
+        setDataCast(details);
+      });
+    };
+
+    getMovieCast();
   }, [id]);
 
   useEffect(() => {
@@ -126,7 +139,13 @@ function Details() {
                 <div className="card-header">
                   <span>Elenco</span>
                 </div>
-                <div className="card-body">A B C D</div>
+                <div className="card-body">
+                  <CarouselActors
+                    title="Adicionados recentemente"
+                    data={dataCast}
+                    // onClick={(id) => history.push(`/movie/details/${id}`)}
+                  />
+                </div>
               </div>
               <div className="card">
                 <div className="card-header">
