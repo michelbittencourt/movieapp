@@ -3,12 +3,17 @@ import { Cores } from "./../../styles/colors";
 
 export const Header = styled.header`
   display: flex;
+  width: 100%;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 30px 60px;
   z-index: 1000;
   background-color: ${Cores.background};
+
+  @media (max-width: 599px) {
+    display: none;
+  }
 `;
 
 export const Navigation = styled.nav`

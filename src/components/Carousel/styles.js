@@ -21,22 +21,62 @@ export const CarouselComponent = styled.div`
         filter: brightness(50%);
       }
     }
-    .carousel {
-      flex: 1 !important;
-      z-index: 100;
-      margin: 10px 60px;
-      margin-bottom: 30px;
-      cursor: pointer;
+
+    .containerCarousel {
+      z-index: 90;
+      margin: 0 60px;
+      padding-bottom: 30px;
+      .carousel-slider {
+        margin-top: 30px;
+        border-radius: 15px;
+        overflow: visible;
+      }
+
+      .slider {
+        height: 600px;
+      }
+
+      .control-arrow {
+        height: 50px;
+        width: 50px;
+        color: red;
+        font-size: 23px;
+        border-radius: 5px;
+        border: none;
+        background-color: #fff;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
+          0 6px 6px rgba(0, 0, 0, 0.23);
+      }
+
+      .control-prev {
+        position: absolute;
+        left: -25px;
+        top: 50%;
+        float: left;
+      }
+
+      .control-next {
+        position: absolute;
+        right: -25px;
+        top: 50%;
+        float: right;
+        z-index: 900;
+      }
+
       .movieBackdrop {
         position: absolute;
         bottom: 0px;
         background-image: linear-gradient(to top, #000000, #ffffff00);
         width: 100%;
         height: 50%;
+        margin: 0;
         .movieDescription {
           position: absolute;
           bottom: 40px;
           left: 60px;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
           .title {
             font-size: 36px;
             color: white;
@@ -55,11 +95,12 @@ export const CarouselComponent = styled.div`
     .movieBackdrop:hover {
       cursor: pointer;
     }
+
     .title {
       font-size: 30px;
       color: white;
       margin: 0px;
-      margin-top: 30px;
+      margin-top: 50px;
     }
 
     .subtitle {
@@ -90,6 +131,72 @@ export const CarouselComponent = styled.div`
       right: 30px;
       top: 55%;
       float: right;
+    }
+  }
+
+  @media (max-width: 599px) {
+    .container {
+      height: 100vh;
+
+      .title {
+        font-size: 27px;
+      }
+      .subtitle {
+        font-size: 15px;
+      }
+
+      .containerCarousel {
+        .control-next {
+          bottom: 0;
+          right: 0;
+        }
+        .control-prev {
+          bottom: 0;
+          left: 0;
+        }
+        .carousel .control-dots {
+          display: none;
+        }
+        .slider {
+          height: 100%;
+        }
+        .slide {
+          background: transparent;
+          img {
+            height: 400px;
+            border-radius: 15px;
+            object-fit: cover;
+          }
+          .movieBackdrop {
+            position: inherit;
+            margin-top: 10px;
+            background-image: none;
+            .movieDescription {
+              position: inherit;
+              .title {
+                font-size: 17px;
+                font-weight: 600;
+              }
+              .description {
+                font-size: 14px;
+                font-weight: 400;
+              }
+            }
+          }
+        }
+      }
+    }
+    .container .background {
+      filter: blur(0px);
+
+      img {
+        filter: brightness(20%);
+        object-fit: cover;
+      }
+    }
+
+    .container .containerCarousel {
+      margin: 0 15px;
     }
   }
 `;

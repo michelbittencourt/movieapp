@@ -1,19 +1,22 @@
 import React, { useState } from "react";
-import {
-  ButtonBack,
-  ButtonNext,
-  CarouselProvider,
-  Image,
-  Slide,
-  Slider,
-} from "pure-react-carousel";
-import "pure-react-carousel/dist/react-carousel.es.css";
+// import {
+//   ButtonBack,
+//   ButtonNext,
+//   CarouselProvider,
+//   Image,
+//   Slide,
+//   Slider,
+// } from "pure-react-carousel";
+// import "pure-react-carousel/dist/react-carousel.es.css";
 import { CarouselComponent } from "./styles";
 import { baseURLImages } from "../../services/api";
+import { isMobile } from "react-device-detect";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 // import { Container } from './styles';
 
-function Carousel({ data, onClick }) {
+function CarouselHeader({ data, onClick }) {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
   const handleBackButtonPressed = () => {
@@ -40,8 +43,38 @@ function Carousel({ data, onClick }) {
             src={`${baseURLImages}${data[selectedImageIndex]?.backdrop_path}`}
           />
         </div>
+        <div className="containerCarousel">
+          <h2 className="title">O cinema nas suas mãos</h2>
+          <span className="subtitle">
+            Filmes adicionados e selecionados exclusivamente para você
+          </span>
+          <Carousel
+            showArrows={true}
+            showThumbs={false}
+            showStatus={false}
+            emulateTouch
+            onChange={(ev) => setSelectedImageIndex(ev)}
+            onClickItem={(ev) => console.log(ev)}
+            onClickThumb={(ev) => console.log(ev)}
+          >
+            {data.map((movie, index) => (
+              <div>
+                <img
+                  alt="cover"
+                  src={`${baseURLImages}/${movie.backdrop_path}`}
+                />
+                <p className="movieBackdrop">
+                  <div className="movieDescription">
+                    <h6 className="title">{movie.title}</h6>
+                    <span className="description">Ação, Aventura</span>
+                  </div>
+                </p>
+              </div>
+            ))}
+          </Carousel>
+        </div>
 
-        <CarouselProvider
+        {/* <CarouselProvider
           visibleSlides={1}
           totalSlides={3}
           naturalSlideWidth={800}
@@ -72,18 +105,22 @@ function Carousel({ data, onClick }) {
               </Slide>
             ))}
           </Slider>
-          <ButtonBack
-            className="button button-prev"
-            onClick={handleBackButtonPressed}
-          >{`<`}</ButtonBack>
-          <ButtonNext
-            className="button button-next"
-            onClick={handleNextButtonPressed}
-          >{`>`}</ButtonNext>
-        </CarouselProvider>
+          {!isMobile && (
+            <ButtonBack
+              className="button button-prev"
+              onClick={handleBackButtonPressed}
+            >{`<`}</ButtonBack>
+          )}
+          {!isMobile && (
+            <ButtonNext
+              className="button button-next"
+              onClick={handleNextButtonPressed}
+            >{`>`}</ButtonNext>
+          )}
+        </CarouselProvider> */}
       </div>
     </CarouselComponent>
   );
 }
 
-export default Carousel;
+export default CarouselHeader;

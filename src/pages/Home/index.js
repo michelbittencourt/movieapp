@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import Carousel from "../../components/Carousel";
 import CarouselWithFourItens from "../../components/CarouselWithFourItens";
 import NavBar from "../../components/NavBar";
 import { api } from "../../services/api";
 import { Container } from "./styles";
 
 // import { Container } from './styles';
+import CarouselHeader from "./../../components/Carousel/index";
 
 function Home() {
   const history = useHistory();
@@ -57,7 +57,7 @@ function Home() {
   return (
     <Container>
       <NavBar />
-      <Carousel
+      <CarouselHeader
         data={dataNowPlaying}
         onClick={(id) => history.push(`/movie/details/${id}`)}
       />
