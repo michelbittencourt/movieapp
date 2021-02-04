@@ -53,6 +53,7 @@ export const CarouselComponent = styled.div`
         left: -25px;
         top: 50%;
         float: left;
+        background: url("../../assets/home/iconRight.svg") -48px 8px no-repeat;
       }
 
       .control-next {
@@ -61,6 +62,7 @@ export const CarouselComponent = styled.div`
         top: 50%;
         float: right;
         z-index: 900;
+        background: url("../../assets/home/iconLeft.svg") -48px 8px no-repeat;
       }
 
       .movieBackdrop {

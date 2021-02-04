@@ -54,7 +54,7 @@ function CarouselHeader({ data, onClick }) {
             showStatus={false}
             emulateTouch
             onChange={(ev) => setSelectedImageIndex(ev)}
-            onClickItem={(ev) => console.log(ev)}
+            onClickItem={(ev) => onClick(data[ev].id)}
             onClickThumb={(ev) => console.log(ev)}
           >
             {data.map((movie, index) => (

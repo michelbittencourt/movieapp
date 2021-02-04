@@ -1,13 +1,16 @@
 import React from "react";
-import {
-  ButtonBack,
-  ButtonNext,
-  CarouselProvider,
-  Image,
-  Slide,
-  Slider,
-} from "pure-react-carousel";
-import "pure-react-carousel/dist/react-carousel.es.css";
+// import {
+//   ButtonBack,
+//   ButtonNext,
+//   CarouselProvider,
+//   Image,
+//   Slide,
+//   Slider,
+// } from "pure-react-carousel";
+// import "pure-react-carousel/dist/react-carousel.es.css";
+
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import { CarouselComponent } from "./styles";
 import SeeAllContainer from "../SeeAllContainer";
@@ -19,7 +22,26 @@ function CarouselWithFourItens({ data, title, onClick }) {
   return (
     <CarouselComponent>
       <div className="container">
-        <CarouselProvider
+        <SeeAllContainer title={title} />
+        <Carousel
+          showArrows={true}
+          showThumbs={false}
+          showStatus={false}
+          centerMode
+          centerSlidePercentage={30}
+          emulateTouch
+          swipeable
+          onChange={(ev) => console.log(ev)}
+          onClickItem={(ev) => onClick(data[ev].id)}
+          onClickThumb={(ev) => console.log(ev)}
+        >
+          {data.map((movie, index) => (
+            <div>
+              <img alt="cover" src={`${baseURLImages}${movie.backdrop_path}`} />
+            </div>
+          ))}
+        </Carousel>
+        {/* <CarouselProvider
           visibleSlides={4}
           totalSlides={12}
           step={4}
@@ -48,7 +70,7 @@ function CarouselWithFourItens({ data, title, onClick }) {
           </Slider>
           <ButtonBack className="button button-prev">{`<`}</ButtonBack>
           <ButtonNext className="button button-next">{`>`}</ButtonNext>
-        </CarouselProvider>
+        </CarouselProvider> */}
       </div>
     </CarouselComponent>
   );

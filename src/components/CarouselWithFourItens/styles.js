@@ -6,8 +6,10 @@ export const CarouselComponent = styled.div`
   .container {
     display: flex;
     justify-content: center;
-    overflow: hidden;
     position: relative;
+    flex-direction: column;
+    margin: 15px 60px;
+    overflow: visible;
     .background {
       position: absolute;
       width: 120%;
@@ -21,7 +23,84 @@ export const CarouselComponent = styled.div`
         filter: brightness(50%);
       }
     }
-    .carousel {
+
+    .carousel-slider {
+      margin-top: 30px;
+      border-radius: 15px;
+      overflow: visible;
+    }
+
+    .slider {
+      height: 300px;
+    }
+
+    .slide {
+      background: transparent;
+      margin: 0 10px;
+      img {
+        height: 300px;
+        border-radius: 15px;
+        object-fit: cover;
+      }
+    }
+
+    .control-arrow {
+      height: 50px;
+      width: 50px;
+      color: red;
+      font-size: 23px;
+      border-radius: 5px;
+      border: none;
+      background-color: #fff;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    }
+
+    .control-prev {
+      position: absolute;
+      left: -25px;
+      top: 50%;
+      float: left;
+      background: url("../../assets/home/iconRight.svg") -48px 8px no-repeat;
+    }
+
+    .control-next {
+      position: absolute;
+      right: -25px;
+      top: 50%;
+      float: right;
+      z-index: 900;
+      background: url("../../assets/home/iconLeft.svg") -48px 8px no-repeat;
+    }
+
+    .movieBackdrop {
+      position: absolute;
+      bottom: 0px;
+      background-image: linear-gradient(to top, #000000, #ffffff00);
+      width: 100%;
+      height: 50%;
+      margin: 0;
+      .movieDescription {
+        position: absolute;
+        bottom: 40px;
+        left: 60px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        .title {
+          font-size: 36px;
+          color: white;
+          margin: 0px;
+        }
+
+        .description {
+          font-size: 18px;
+          color: white;
+          align-self: flex-start;
+        }
+      }
+    }
+
+    /* .carousel {
       flex: 1 !important;
       z-index: 100;
       margin: 10px 60px;
@@ -40,7 +119,6 @@ export const CarouselComponent = styled.div`
         div {
           transform: perspective(200px) translateZ(10px);
           img {
-            /* transform: perspective(200px) translateZ(10px); */
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
               0 6px 6px rgba(0, 0, 0, 0.23);
           }
@@ -77,6 +155,6 @@ export const CarouselComponent = styled.div`
       right: 35px;
       top: 50%;
       float: right;
-    }
+    } */
   }
 `;
