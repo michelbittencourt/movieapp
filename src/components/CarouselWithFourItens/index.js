@@ -27,10 +27,9 @@ function CarouselWithFourItens({ data, title, onClick }) {
           showArrows={true}
           showThumbs={false}
           showStatus={false}
+          showIndicators={false}
           centerMode
-          centerSlidePercentage={30}
-          emulateTouch
-          swipeable
+          centerSlidePercentage={25}
           onChange={(ev) => console.log(ev)}
           onClickItem={(ev) => onClick(data[ev].id)}
           onClickThumb={(ev) => console.log(ev)}
@@ -41,36 +40,6 @@ function CarouselWithFourItens({ data, title, onClick }) {
             </div>
           ))}
         </Carousel>
-        {/* <CarouselProvider
-          visibleSlides={4}
-          totalSlides={12}
-          step={4}
-          naturalSlideWidth={800}
-          naturalSlideHeight={300}
-          hasMasterSpinner
-          infinite
-        >
-          <SeeAllContainer title={title} />
-          <Slider
-            style={{
-              margin: "0 auto",
-              marginTop: 30,
-              borderRadius: 15,
-            }}
-          >
-            {data?.map((item, index) => (
-              <Slide
-                index={index}
-                className="slide"
-                onClick={() => onClick(item?.id)}
-              >
-                <Image src={`${baseURLImages}${item.poster_path}`} />
-              </Slide>
-            ))}
-          </Slider>
-          <ButtonBack className="button button-prev">{`<`}</ButtonBack>
-          <ButtonNext className="button button-next">{`>`}</ButtonNext>
-        </CarouselProvider> */}
       </div>
     </CarouselComponent>
   );

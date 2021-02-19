@@ -26,7 +26,11 @@ export const CarouselComponent = styled.div`
 
     .carousel-slider {
       margin-top: 30px;
-      border-radius: 15px;
+      border-radius: 5px;
+      overflow: visible;
+    }
+
+    .carousel .slider-wrapper {
       overflow: visible;
     }
 
@@ -37,10 +41,22 @@ export const CarouselComponent = styled.div`
     .slide {
       background: transparent;
       margin: 0 10px;
+      width: 200px;
       img {
         height: 300px;
-        border-radius: 15px;
+        border-radius: 5px;
         object-fit: cover;
+      }
+    }
+
+    .slide:hover {
+      perspective: 300px;
+      perspective-origin: center;
+      z-index: 100;
+      div {
+        transform: translateZ(70px) perspective(300px);
+        transform-style: preserve-3d;
+        transition: all 300ms ease-in-out;
       }
     }
 
@@ -53,6 +69,7 @@ export const CarouselComponent = styled.div`
       border: none;
       background-color: #fff;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+      opacity: 1;
     }
 
     .control-prev {
@@ -60,7 +77,8 @@ export const CarouselComponent = styled.div`
       left: -25px;
       top: 50%;
       float: left;
-      background: url("../../assets/home/iconRight.svg") -48px 8px no-repeat;
+      background-color: #fff;
+      background: url("../../assets/home/iconRight.svg") -48px 8px no-repeat #f44336;
     }
 
     .control-next {
@@ -69,7 +87,8 @@ export const CarouselComponent = styled.div`
       top: 50%;
       float: right;
       z-index: 900;
-      background: url("../../assets/home/iconLeft.svg") -48px 8px no-repeat;
+      background-color: #fff;
+      background: url("../../assets/home/iconLeft.svg") -48px 8px no-repeat #f44336;
     }
 
     .movieBackdrop {
